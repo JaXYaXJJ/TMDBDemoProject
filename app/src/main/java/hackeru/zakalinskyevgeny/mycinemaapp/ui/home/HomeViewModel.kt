@@ -1,13 +1,21 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import hackeru.zakalinskyevgeny.mycinemaapp.MyCinemaApp
+import hackeru.zakalinskyevgeny.mycinemaapp.data.MainDatabase
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.repository.MovieRepository
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application)
+    : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    val movies: LiveData<List<Movie>> = MyCinemaApp.db.movieDao().getMovies()
+
+    init {
+        viewModelScope.launch {
+            MyCinemaApp.movieRepository.refreshMovies()
+        }
     }
-    val text: LiveData<String> = _text
 }

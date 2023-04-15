@@ -8,12 +8,11 @@ import kotlinx.coroutines.withContext
 class MovieRepository(private val movieDao: MovieDao) {
     suspend fun refreshMovies() {
         withContext(Dispatchers.IO) {
+            val service = TMBDService.create()
             //fetch movie from API
-            val movieRes = TMBDService
-                .create()
+            val movieRes = service
                 .popularMovies()
-            val genreRes = TMBDService
-                .create()
+            val genreRes = service
                 .genres()
             //save to local DB
             movieDao.addMovies(movieRes.movies)
