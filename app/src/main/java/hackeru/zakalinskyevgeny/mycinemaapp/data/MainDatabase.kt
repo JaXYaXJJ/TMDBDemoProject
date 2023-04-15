@@ -8,7 +8,10 @@ import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Genre
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 
-@Database(version = 1, entities = [
+private const val DB_NAME = "MovieDatabase"
+private const val DB_VERSION = 1
+
+@Database(version = DB_VERSION, entities = [
     Movie::class,
     Genre::class
 ])
@@ -18,10 +21,13 @@ abstract class MainDatabase: RoomDatabase() {
     companion object {
         fun createDatabase(context: Context): MainDatabase {
             return Room.databaseBuilder(
+
                 context,
                 MainDatabase::class.java,
-                "MovieDatabase"
-            ).build()
+                DB_NAME
+            )
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }

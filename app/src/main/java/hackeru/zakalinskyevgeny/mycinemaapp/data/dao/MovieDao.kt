@@ -22,9 +22,9 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addGenres(genres: List<Genre>)
 
-    @Query("SELECT * FROM Movie")
+    @Query("SELECT * FROM movies")
     fun getMovies(): LiveData<List<Movie>>
 
-    @Query("SELECT * FROM Genre")
+    @Query("SELECT * FROM genres")
     fun getGenres(): LiveData<List<Genre>>
 }
