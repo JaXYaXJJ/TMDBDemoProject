@@ -7,9 +7,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import hackeru.zakalinskyevgeny.mycinemaapp.MyCinemaApp
+import hackeru.zakalinskyevgeny.mycinemaapp.adapters.MovieAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -25,9 +31,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
         homeViewModel.movies.observe(viewLifecycleOwner) {
-            textView.text = it.toString()
+            binding.popMovieRV.adapter = MovieAdapter(it)
         }
         return root
     }

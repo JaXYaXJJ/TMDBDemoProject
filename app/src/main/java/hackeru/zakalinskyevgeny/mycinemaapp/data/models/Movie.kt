@@ -5,6 +5,9 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+private const val DEFAULT_IMG =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png"
+
 @Entity (tableName = "movies")
 data class Movie(
     @PrimaryKey
@@ -30,6 +33,16 @@ data class Movie(
     @SerializedName("vote_count")
     val voteCount: Int
 ) {
+    val backdropUrl
+        get() = if (backdropPath != null)
+            "https://image.tmdb.org/t/p/w780${backdropPath}"
+        else DEFAULT_IMG
+
+    val posterUrl
+        get() = if (posterPath != null)
+            "https://image.tmdb.org/t/p/w342${posterPath}"
+        else DEFAULT_IMG
+
     @Ignore
     @SerializedName("genre_ids")
     val genreIds: List<Int> = mutableListOf()
