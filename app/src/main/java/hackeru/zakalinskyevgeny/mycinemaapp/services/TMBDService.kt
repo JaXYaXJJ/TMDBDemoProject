@@ -2,6 +2,7 @@ package hackeru.zakalinskyevgeny.mycinemaapp.services
 
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.GenreResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.MoveResponse
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TVResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.utils.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,6 +20,9 @@ interface TMBDService {
 
     @GET("3/genre/movie/list")
     suspend fun genres(): GenreResponse
+
+    @GET("3/discover/tv?sort_by=popularity.desc")
+    suspend fun popularShows(): TVResponse
 
     companion object {
         fun create(): TMBDService {

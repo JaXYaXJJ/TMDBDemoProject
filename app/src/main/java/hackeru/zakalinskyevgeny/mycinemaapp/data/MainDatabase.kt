@@ -7,13 +7,15 @@ import androidx.room.RoomDatabase
 import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Genre
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 
 private const val DB_NAME = "MovieDatabase"
-private const val DB_VERSION = 1
+private const val DB_VERSION = 2
 
 @Database(version = DB_VERSION, entities = [
     Movie::class,
-    Genre::class
+    Genre::class,
+    TV::class
 ])
 abstract class MainDatabase: RoomDatabase() {
     abstract fun movieDao(): MovieDao

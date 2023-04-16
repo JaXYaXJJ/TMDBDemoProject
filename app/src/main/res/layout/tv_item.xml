@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvCard"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tvPosterCard"
+            app:cardCornerRadius="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/tvCover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tvTitleCard"
+            app:cardCornerRadius="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FBD1DF"
+            app:layout_constraintEnd_toEndOf="@+id/tvPosterCard"
+            app:layout_constraintStart_toStartOf="@+id/tvPosterCard"
+            app:layout_constraintTop_toBottomOf="@+id/tvPosterCard">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/allerta_stencil"
+                android:textColor="#9C6C6C"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

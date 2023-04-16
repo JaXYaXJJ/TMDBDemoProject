@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hackeru.zakalinskyevgeny.mycinemaapp.MyCinemaApp
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.MovieAdapter
+import hackeru.zakalinskyevgeny.mycinemaapp.adapters.TVAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -32,7 +33,23 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         homeViewModel.movies.observe(viewLifecycleOwner) {
-            binding.popMovieRV.adapter = MovieAdapter(it)
+            val movieAdapter = MovieAdapter(it)
+            binding.popMovieRV.adapter = movieAdapter
+            binding.popMovieRV.layoutManager = LinearLayoutManager(
+                context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+        }
+
+        homeViewModel.shows.observe(viewLifecycleOwner) {
+            val tvAdapter = TVAdapter(it)
+            binding.popShowRV.adapter = tvAdapter
+            binding.popShowRV.layoutManager = LinearLayoutManager(
+                context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
         }
         return root
     }

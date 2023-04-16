@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import hackeru.zakalinskyevgeny.mycinemaapp.MyCinemaApp
 import hackeru.zakalinskyevgeny.mycinemaapp.data.MainDatabase
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.data.repository.MovieRepository
 import kotlinx.coroutines.launch
 
@@ -12,10 +13,12 @@ class HomeViewModel(application: Application)
     : AndroidViewModel(application) {
 
     val movies: LiveData<List<Movie>> = MyCinemaApp.db.movieDao().getMovies()
+    val shows: LiveData<List<TV>> = MyCinemaApp.db.movieDao().getShows()
 
     init {
         viewModelScope.launch {
             MyCinemaApp.movieRepository.refreshMovies()
+
         }
     }
 }

@@ -12,10 +12,13 @@ class MovieRepository(private val movieDao: MovieDao) {
             //fetch movie from API
             val movieRes = service
                 .popularMovies()
+            val showRes = service
+                .popularShows()
             val genreRes = service
                 .genres()
             //save to local DB
             movieDao.addMovies(movieRes.movies)
+            movieDao.addShows(showRes.tv)
             movieDao.addGenres(genreRes.genres)
         }
     }
