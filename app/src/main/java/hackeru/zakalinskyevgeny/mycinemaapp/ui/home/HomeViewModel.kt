@@ -18,7 +18,6 @@ class HomeViewModel(application: Application)
     init {
         viewModelScope.launch {
             MyCinemaApp.movieRepository.refreshMovies()
-
         }
     }
 }

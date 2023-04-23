@@ -3,6 +3,7 @@ package hackeru.zakalinskyevgeny.mycinemaapp.services
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.GenreResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.MoveResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TVResponse
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.film.FilmInfo
 import hackeru.zakalinskyevgeny.mycinemaapp.utils.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,6 +24,9 @@ interface TMBDService {
 
     @GET("3/discover/tv?sort_by=popularity.desc")
     suspend fun popularShows(): TVResponse
+
+    @GET("3/movie/id")
+    suspend fun getFilm(): FilmInfo
 
     companion object {
         fun create(): TMBDService {

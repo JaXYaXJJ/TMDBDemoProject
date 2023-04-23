@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import hackeru.zakalinskyevgeny.mycinemaapp.MyCinemaApp
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.MovieAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.TVAdapter
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentHomeBinding
+import hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FILM
 
-class HomeFragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
+class HomeFragment : Fragment(), MovieAdapter.Listener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -27,13 +27,17 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(
+            inflater,
+            container,
+            false
+        )
         val root: View = binding.root
 
         homeViewModel.movies.observe(viewLifecycleOwner) {
-            val movieAdapter = MovieAdapter(it)
+            val movieAdapter = MovieAdapter(it,this)
             binding.popMovieRV.adapter = movieAdapter
             binding.popMovieRV.layoutManager = LinearLayoutManager(
                 context,
@@ -57,5 +61,10 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(movie: Movie) {
+        Toast.makeText(context, "Click on: ${movie.title}",
+            Toast.LENGTH_LONG).show()
     }
 }

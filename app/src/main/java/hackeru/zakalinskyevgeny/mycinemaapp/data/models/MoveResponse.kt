@@ -1,6 +1,5 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.data.models
 
-
 import com.google.gson.annotations.SerializedName
 
 data class MoveResponse(
