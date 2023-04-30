@@ -32,7 +32,7 @@
                 app:cardCornerRadius="0dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#979797"
+                android:backgroundTint="#B7B7B7"
                 app:layout_constraintEnd_toEndOf="@+id/posterCard"
                 app:layout_constraintStart_toStartOf="@+id/posterCard"
                 app:layout_constraintTop_toBottomOf="@+id/posterCard">
@@ -42,12 +42,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:fontFamily="@font/allerta_stencil"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"
                     android:ellipsize="end"
+                    android:fontFamily="@font/almarai_light"
+                    android:gravity="center"
                     android:maxLines="1"
-                    android:text="TextView" />
+                    android:textColor="#EDC6B1"
+                    tools:text="Movie"/>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

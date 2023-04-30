@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/almarai_bold</item>
+        <item>@font/almarai_extrabold</item>
+        <item>@font/almarai_light</item>
+        <item>@font/zilla_slab_highlight</item>
+        <item>@font/zilla_slab_highlight_bold</item>
+    </array>
+</resources>

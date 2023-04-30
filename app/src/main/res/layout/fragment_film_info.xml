@@ -4,28 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7C96AB"
     tools:context=".ui.film.FilmInfoFragment">
+
+    <ImageView
+        android:id="@+id/filmBackdrop"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:tint="#E67C96AB"
+        android:src="@drawable/ic_launcher_background"
+        tools:ignore="UseAppTint" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/filmPoster"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/filmTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@+id/filmPoster"
-            app:layout_constraintStart_toStartOf="@+id/filmPoster"
-            app:layout_constraintTop_toBottomOf="@+id/filmPoster" />
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/almarai_extrabold"
+            android:textColor="#BFCCB5"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/filmCard"
+            app:layout_constraintStart_toEndOf="@+id/filmCard"
+            app:layout_constraintTop_toTopOf="@+id/filmCard"
+            tools:text="Movie Title" />
+
+        <TextView
+            android:id="@+id/filmRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_light"
+            android:textColor="#EDC6B1"
+            app:layout_constraintStart_toStartOf="@+id/filmTitle"
+            app:layout_constraintTop_toBottomOf="@+id/filmTitle"
+            tools:text="Movie Release" />
+
+        <TextView
+            android:id="@+id/filmOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/almarai_light"
+            android:textColor="#BFCCB5"
+            app:layout_constraintStart_toStartOf="@+id/filmCard"
+            app:layout_constraintTop_toBottomOf="@+id/filmCard"
+            tools:text="Overview" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/filmCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/filmPosterCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="0dp"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:id="@+id/filmPoster"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/filmRatingCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#B7B7B7"
+                    app:cardCornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="@+id/filmPosterCard"
+                    app:layout_constraintStart_toStartOf="@+id/filmPosterCard"
+                    app:layout_constraintTop_toBottomOf="@+id/filmPosterCard">
+
+                    <TextView
+                        android:id="@+id/filmRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="#EDC6B1"
+                        tools:text="Rating"/>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

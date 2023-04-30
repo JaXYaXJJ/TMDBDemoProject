@@ -1,6 +1,5 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.adapters
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -10,9 +9,10 @@ import com.squareup.picasso.Picasso
 import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.MovieItemBinding
-import hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FILM
 
-class MovieAdapter(private val movies: List<Movie>, private var listener: Listener)
+class MovieAdapter(private val movies: List<Movie>,
+                   private var listener: Listener,
+                   private val callback: (movie : Movie) -> Unit)
     : RecyclerView.Adapter<MovieAdapter.MovieVH>() {
         class MovieVH(val binding: MovieItemBinding)
             : ViewHolder(binding.root)
@@ -37,9 +37,7 @@ class MovieAdapter(private val movies: List<Movie>, private var listener: Listen
 
         holder.binding.movieCard.setOnClickListener { view ->
             listener.onClick(movie)
-            view.findNavController().navigate(
-                R.id.action_from_home_to_filmInfoFragment
-            )
+            callback(movie)
         }
     }
 

@@ -10,10 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.MovieAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.TVAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentHomeBinding
+import hackeru.zakalinskyevgeny.mycinemaapp.services.TMBDService
 import hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FILM
 
 class HomeFragment : Fragment(), MovieAdapter.Listener {
@@ -37,7 +39,15 @@ class HomeFragment : Fragment(), MovieAdapter.Listener {
         val root: View = binding.root
 
         homeViewModel.movies.observe(viewLifecycleOwner) {
-            val movieAdapter = MovieAdapter(it,this)
+            val movieAdapter = MovieAdapter(it,this) {
+                movie ->
+                val bundle = Bundle()
+                bundle.putParcelable(FILM, movie)
+                findNavController().navigate(
+                    R.id.action_from_home_to_filmInfoFragment,
+                    bundle
+                )
+            }
             binding.popMovieRV.adapter = movieAdapter
             binding.popMovieRV.layoutManager = LinearLayoutManager(
                 context,
