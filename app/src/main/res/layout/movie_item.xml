@@ -14,10 +14,12 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/posterCard"
-                app:cardCornerRadius="0dp"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints">
+                app:cardCornerRadius="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/movieCover"
@@ -43,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:ellipsize="end"
-                    android:fontFamily="@font/almarai_light"
+                    android:fontFamily="@font/almarai_bold"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="#EDC6B1"

@@ -8,6 +8,8 @@ import androidx.room.Query
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Genre
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
 
 @Dao
 interface MovieDao {
@@ -29,6 +31,15 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addGenres(genres: List<Genre>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun add(person: Cast)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addCast(persons: List<Cast>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun add(info: PrimaryMovieInfo)
+
     @Query("SELECT * FROM movies")
     fun getMovies(): LiveData<List<Movie>>
 
@@ -37,4 +48,10 @@ interface MovieDao {
 
     @Query("SELECT * FROM genres")
     fun getGenres(): LiveData<List<Genre>>
+
+    @Query("SELECT * FROM movieCast")
+    fun getCast(): LiveData<List<Cast>>
+
+    @Query("SELECT * FROM primaryInfo")
+    fun getPrimaryInfo(): LiveData<PrimaryMovieInfo>
 }

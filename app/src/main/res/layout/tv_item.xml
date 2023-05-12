@@ -14,9 +14,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/tvPosterCard"
-            app:cardCornerRadius="0dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:fontFamily="@font/almarai_light"
+                android:fontFamily="@font/almarai_bold"
                 android:textColor="#7C96AB"
                 android:gravity="center"
                 android:ellipsize="end"

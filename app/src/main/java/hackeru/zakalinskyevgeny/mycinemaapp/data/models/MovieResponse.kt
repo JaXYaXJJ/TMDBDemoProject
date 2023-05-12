@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class MoveResponse(
+data class MovieResponse(
     val page: Int,
     @SerializedName("results")
     val movies: List<Movie>,
@@ -13,7 +13,6 @@ data class MoveResponse(
     val totalPages: Int,
     @SerializedName("total_results")
     val totalResults: Int,
-
     @SerializedName("status_code")
     val statusCode: Int?,
     @SerializedName("status_message")

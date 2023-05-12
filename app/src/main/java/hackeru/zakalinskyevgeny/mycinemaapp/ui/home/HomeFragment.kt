@@ -10,10 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import hackeru.zakalinskyevgeny.mycinemaapp.R
+import hackeru.zakalinskyevgeny.mycinemaapp.adapters.CastAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.MovieAdapter
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.TVAdapter
+import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentHomeBinding
 import hackeru.zakalinskyevgeny.mycinemaapp.services.TMBDService
 import hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FILM

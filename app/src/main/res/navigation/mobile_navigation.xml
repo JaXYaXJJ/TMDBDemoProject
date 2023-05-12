@@ -23,12 +23,13 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="hackeru.zakalinskyevgeny.mycinemaapp.ui.notifications.NotificationsFragment"
+        android:name="hackeru.zakalinskyevgeny.mycinemaapp.ui.search.SearchFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_search" />
+
     <fragment
         android:id="@+id/filmInfoFragment"
         android:name="hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FilmInfoFragment"
-        android:label="fragment_film_info"
+        android:label="Overview"
         tools:layout="@layout/fragment_film_info" />
 </navigation>

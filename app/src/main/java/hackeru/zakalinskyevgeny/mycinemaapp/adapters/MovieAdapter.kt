@@ -2,17 +2,16 @@ package hackeru.zakalinskyevgeny.mycinemaapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
-import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.MovieItemBinding
 
 class MovieAdapter(private val movies: List<Movie>,
                    private var listener: Listener,
-                   private val callback: (movie : Movie) -> Unit)
+                   private val callback: (movie: Movie) -> Unit)
     : RecyclerView.Adapter<MovieAdapter.MovieVH>() {
         class MovieVH(val binding: MovieItemBinding)
             : ViewHolder(binding.root)
@@ -35,7 +34,7 @@ class MovieAdapter(private val movies: List<Movie>,
             .into(holder.binding.movieCover)
         holder.binding.movieTitle.text = movie.title
 
-        holder.binding.movieCard.setOnClickListener { view ->
+        holder.binding.movieCard.setOnClickListener {
             listener.onClick(movie)
             callback(movie)
         }
