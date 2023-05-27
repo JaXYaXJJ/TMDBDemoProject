@@ -10,16 +10,19 @@ import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 
 private const val DB_NAME = "MovieDatabase"
-private const val DB_VERSION = 8
+private const val DB_VERSION = 9
 
 @Database(version = DB_VERSION, entities = [
     Movie::class,
     Genre::class,
     TV::class,
     Cast::class,
-    PrimaryMovieInfo::class
+    PrimaryMovieInfo::class,
+    TMBDResult::class
 ])
 abstract class MainDatabase: RoomDatabase() {
     abstract fun movieDao(): MovieDao

@@ -43,7 +43,8 @@ class FilmInfoFragment: Fragment() {
         _binding = FragmentFilmInfoBinding.inflate(
             inflater,
             container,
-            false)
+            false
+        )
 
         return binding.root
     }
@@ -60,7 +61,8 @@ class FilmInfoFragment: Fragment() {
             binding.castRV.layoutManager = LinearLayoutManager(
                 requireContext(),
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
         }
 
         val movie = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

@@ -5,6 +5,7 @@ import hackeru.zakalinskyevgeny.mycinemaapp.data.models.MovieResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TVResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
 import hackeru.zakalinskyevgeny.mycinemaapp.utils.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -29,8 +30,8 @@ interface TMBDService {
 
     @GET("3/search/movie")
     suspend fun search(
-        @Query("q") name: String
-    ): MovieResponse
+        @Query("query") name: String
+    ): SearchMovie
 
     @GET("3/movie/{movie_id}/credits")
     suspend fun cast(

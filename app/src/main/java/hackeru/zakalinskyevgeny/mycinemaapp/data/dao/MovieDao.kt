@@ -10,6 +10,8 @@ import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 
 @Dao
 interface MovieDao {
@@ -40,6 +42,12 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(info: PrimaryMovieInfo)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun add(searchMovie: TMBDResult)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addSearchMovie(searchMovies: List<TMBDResult>)
+
     @Query("SELECT * FROM movies")
     fun getMovies(): LiveData<List<Movie>>
 
@@ -54,4 +62,7 @@ interface MovieDao {
 
     @Query("SELECT * FROM primaryInfo")
     fun getPrimaryInfo(): LiveData<PrimaryMovieInfo>
+
+    @Query("SELECT * FROM tmbd_result")
+    fun getSearchMovie(): LiveData<TMBDResult>
 }

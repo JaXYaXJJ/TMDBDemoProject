@@ -3,6 +3,8 @@ package hackeru.zakalinskyevgeny.mycinemaapp.data.repository
 import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 import hackeru.zakalinskyevgeny.mycinemaapp.services.TMBDService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -36,5 +38,10 @@ class MovieRepository(private val movieDao: MovieDao) {
     suspend fun getInfo(id: Int): PrimaryMovieInfo {
         val service = TMBDService.create()
         return service.info(id)
+    }
+
+    suspend fun getSearchMovie(string: String): SearchMovie {
+        val service = TMBDService.create()
+        return service.search(string)
     }
 }
