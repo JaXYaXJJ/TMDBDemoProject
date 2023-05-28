@@ -5,10 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.Movie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.TvItemBinding
 
-class TVAdapter(private val shows: List<TV>)
+class TVAdapter(private val shows: List<TV>,
+                private val callback: (show: TV) -> Unit)
     : RecyclerView.Adapter<TVAdapter.TVVH>() {
         class TVVH(val binding: TvItemBinding)
             : ViewHolder(binding.root)
@@ -30,5 +32,9 @@ class TVAdapter(private val shows: List<TV>)
         Picasso.get().load(show.posterUrl)
             .into(holder.binding.tvCover)
         holder.binding.tvTitle.text = show.name
+
+        holder.binding.tvCard.setOnClickListener {
+            callback(show)
+        }
     }
 }

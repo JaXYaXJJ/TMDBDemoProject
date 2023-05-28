@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.CastItemBinding
 
 class CastAdapter(private val persons: List<Cast>,

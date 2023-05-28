@@ -7,22 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Dao
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.adapters.CastAdapter
-import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentFilmInfoBinding
-import hackeru.zakalinskyevgeny.mycinemaapp.services.TMBDService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 const val FILM = "hackeru.zakalinskyevgeny.data.models.film"
 
@@ -45,7 +34,6 @@ class FilmInfoFragment: Fragment() {
             container,
             false
         )
-
         return binding.root
     }
 

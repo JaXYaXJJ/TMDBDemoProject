@@ -5,13 +5,11 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Genre
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre.Genre
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TV
 
 @Dao
 interface MovieDao {
@@ -40,7 +38,10 @@ interface MovieDao {
     suspend fun addCast(persons: List<Cast>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun add(info: PrimaryMovieInfo)
+    suspend fun add(person: hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.Cast)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addTvCast(persons: List<hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.Cast>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(searchMovie: TMBDResult)
@@ -60,8 +61,8 @@ interface MovieDao {
     @Query("SELECT * FROM movieCast")
     fun getCast(): LiveData<List<Cast>>
 
-    @Query("SELECT * FROM primaryInfo")
-    fun getPrimaryInfo(): LiveData<PrimaryMovieInfo>
+    @Query("SELECT * FROM tvCast")
+    fun getTvCast(): LiveData<List<hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.Cast>>
 
     @Query("SELECT * FROM tmbd_result")
     fun getSearchMovie(): LiveData<TMBDResult>

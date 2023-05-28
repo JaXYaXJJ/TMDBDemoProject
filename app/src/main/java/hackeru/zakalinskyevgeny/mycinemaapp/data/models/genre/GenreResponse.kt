@@ -1,4 +1,4 @@
-package hackeru.zakalinskyevgeny.mycinemaapp.data.models
+package hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre
 
 import com.google.gson.annotations.SerializedName
 

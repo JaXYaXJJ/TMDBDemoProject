@@ -5,23 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Genre
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.Movie
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TV
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre.Genre
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TV
 
 private const val DB_NAME = "MovieDatabase"
-private const val DB_VERSION = 9
+private const val DB_VERSION = 12
 
 @Database(version = DB_VERSION, entities = [
     Movie::class,
     Genre::class,
     TV::class,
     Cast::class,
-    PrimaryMovieInfo::class,
+    hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.Cast::class,
     TMBDResult::class
 ])
 abstract class MainDatabase: RoomDatabase() {

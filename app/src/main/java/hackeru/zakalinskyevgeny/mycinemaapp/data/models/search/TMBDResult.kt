@@ -6,6 +6,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.DEFAULT
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -33,6 +34,16 @@ data class TMBDResult(
     @SerializedName("vote_count")
     val voteCount: Int
 ) : Parcelable {
+
+    val backdropUrl
+        get() = if (backdropPath != null)
+            "https://image.tmdb.org/t/p/w780${backdropPath}"
+        else DEFAULT
+
+    val posterUrl
+        get() = if (posterPath != null)
+            "https://image.tmdb.org/t/p/w342${posterPath}"
+        else DEFAULT
 
     @Ignore
     @SerializedName("genre_ids")

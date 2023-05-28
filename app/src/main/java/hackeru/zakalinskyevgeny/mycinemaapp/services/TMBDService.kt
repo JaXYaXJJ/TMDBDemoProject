@@ -1,11 +1,11 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.services
 
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.GenreResponse
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.MovieResponse
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.TVResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.primary_info.PrimaryMovieInfo
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre.GenreResponse
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.MovieResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TVResponse
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.TvCast
 import hackeru.zakalinskyevgeny.mycinemaapp.utils.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -38,10 +38,10 @@ interface TMBDService {
         @Path("movie_id") movieId: Int
     ): MovieCast
 
-    @GET ("3/movie/{movie_id}")
-    suspend fun info(
-        @Path("id") movieId: Int
-    ): PrimaryMovieInfo
+    @GET("3/tv/{series_id}/credits")
+    suspend fun tvCast(
+        @Path("series_id") seriesId: Int
+    ): TvCast
 
     companion object {
         fun create(): TMBDService {

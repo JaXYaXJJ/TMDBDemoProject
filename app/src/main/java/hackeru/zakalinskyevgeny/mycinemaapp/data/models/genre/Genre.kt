@@ -1,4 +1,4 @@
-package hackeru.zakalinskyevgeny.mycinemaapp.data.models
+package hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
