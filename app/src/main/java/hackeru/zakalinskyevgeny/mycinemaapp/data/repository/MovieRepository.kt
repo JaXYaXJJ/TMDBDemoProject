@@ -2,6 +2,9 @@ package hackeru.zakalinskyevgeny.mycinemaapp.data.repository
 
 import hackeru.zakalinskyevgeny.mycinemaapp.data.dao.MovieDao
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Backdrop
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Images
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Info
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv_cast.TvCast
 import hackeru.zakalinskyevgeny.mycinemaapp.services.TMBDService

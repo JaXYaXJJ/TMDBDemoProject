@@ -25,6 +25,8 @@
                     android:id="@+id/movieCover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:minHeight="195dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ic_launcher_foreground" />
 
             </androidx.cardview.widget.CardView>

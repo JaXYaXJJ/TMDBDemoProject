@@ -7,6 +7,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre.Genre
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Backdrop
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Info
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.Movie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TV

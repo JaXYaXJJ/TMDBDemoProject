@@ -1,7 +1,11 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.services
 
+import android.media.Image
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.genre.GenreResponse
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Backdrop
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Images
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.info.Info
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.MovieResponse
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.tv.TVResponse
@@ -42,6 +46,12 @@ interface TMBDService {
     suspend fun tvCast(
         @Path("series_id") seriesId: Int
     ): TvCast
+
+    //info for selected movies from search fragment
+    @GET("3/movie/{movie_id}?append_to_response=details,images,reviews")
+    suspend fun info(
+        @Path("movie_id") movieId: Int
+    ): List<Info>
 
     companion object {
         fun create(): TMBDService {

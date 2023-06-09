@@ -1,16 +1,13 @@
 package hackeru.zakalinskyevgeny.mycinemaapp
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.MovieCast
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.ActivityMainBinding
-import hackeru.zakalinskyevgeny.mycinemaapp.ui.home.HomeViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         val navView: BottomNavigationView = binding.navView
 

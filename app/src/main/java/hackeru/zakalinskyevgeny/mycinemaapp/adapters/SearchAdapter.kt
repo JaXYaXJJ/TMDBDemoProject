@@ -9,23 +9,30 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import hackeru.zakalinskyevgeny.mycinemaapp.R
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.DEFAULT
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.SearchMovie
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.SearchItemBinding
 
-class SearchAdapter(private val onSearchItemClick: (TMBDResult) -> Unit) : ListAdapter<TMBDResult, SearchAdapter.SearchVH>(Comparator()) {
+class SearchAdapter(private val onSearchItemClick: (TMBDResult) -> Unit)
+    : ListAdapter<TMBDResult, SearchAdapter.SearchVH>(Comparator()) {
         class SearchVH(view : View) : RecyclerView.ViewHolder(view) {
 
             private val binding = SearchItemBinding.bind(view)
 
-            fun bind(searchMovie: TMBDResult, onSearchItemClick :  (TMBDResult) -> Unit) = with(binding) {
+            fun bind(searchMovie: TMBDResult,
+                     onSearchItemClick : (TMBDResult) -> Unit) = with(binding) {
+
                 searchTitle.text = searchMovie.title
                 searchOverview.text = searchMovie.overview
 
                 val pic = "https://image.tmdb.org/t/p/w185" + searchMovie.posterPath
+                if (searchMovie.posterPath != null)
                 pic.let { image ->
                     Picasso.get().load(image).into(binding.searchPoster)
                 }
+                else
+                    Picasso.get().load(R.drawable.video).into(binding.searchPoster)
 
                 binding.searchCard.setOnClickListener {
                     onSearchItemClick.invoke(searchMovie)

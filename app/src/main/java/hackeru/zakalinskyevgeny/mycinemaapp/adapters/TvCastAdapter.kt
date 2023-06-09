@@ -10,7 +10,8 @@ import hackeru.zakalinskyevgeny.mycinemaapp.databinding.CastItemBinding
 
 class TvCastAdapter(private val person: List<Cast>)
     : RecyclerView.Adapter<TvCastAdapter.TvCastVH>() {
-        class TvCastVH(val binding: CastItemBinding) : ViewHolder(binding.root)
+        class TvCastVH(val binding: CastItemBinding)
+            : ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvCastVH {
         return TvCastVH(

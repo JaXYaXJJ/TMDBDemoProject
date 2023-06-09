@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/searchCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:backgroundTint="#BFCCB5"
     android:layout_margin="2dp"
-    app:cardCornerRadius="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:id="@+id/cardImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +31,8 @@
                     android:id="@+id/searchPoster"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/video" />
 
             </androidx.cardview.widget.CardView>
 
@@ -39,16 +40,15 @@
                 android:id="@+id/searchTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/almarai_bold"
-                android:maxLines="1"
                 android:maxWidth="200dp"
-                android:textColor="#7C96AB"
+                android:maxLines="1"
+                android:textColor="@color/my_blue"
                 app:layout_constraintStart_toEndOf="@+id/cardImage"
-                app:layout_constraintTop_toTopOf="@+id/cardImage"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Title" />
 
             <TextView
@@ -56,17 +56,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/almarai_light"
-                android:maxLines="2"
                 android:maxWidth="200dp"
+                android:maxLines="2"
                 android:textColor="#7C96AB"
+                app:layout_constraintBottom_toBottomOf="@+id/cardImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/cardImage"
                 app:layout_constraintTop_toBottomOf="@+id/searchTitle"
+                app:layout_constraintVertical_bias="0.0"
                 tools:text="Overview" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

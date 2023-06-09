@@ -5,11 +5,8 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import hackeru.zakalinskyevgeny.mycinemaapp.data.models.movie.DEFAULT
 import kotlinx.android.parcel.Parcelize
-
-private const val DEFAULT_PERSON_IMG =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg" +
-            "/681px-Placeholder_view_vector.svg.png"
 
 @Parcelize
 @Entity(tableName = "tvCast")
@@ -35,5 +32,5 @@ data class Cast(
     val personPhoto
         get() = if (profilePath != null)
             "https://image.tmdb.org/t/p/w342${profilePath}"
-        else DEFAULT_PERSON_IMG
+        else DEFAULT
 }

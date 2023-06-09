@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
-import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.search.TMBDResult
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.FragmentSelectedMovieBinding
 import hackeru.zakalinskyevgeny.mycinemaapp.ui.film.FILM
@@ -45,6 +44,8 @@ class SelectedMovieFragment : Fragment() {
         } ?: return
 
         Picasso.get().load(selectedMovie.backdropUrl).into(binding.selectedBackdrop)
+        Picasso.get().load(selectedMovie.posterUrl).into(binding.selectedPoster)
         binding.selectedTitle.text = selectedMovie.title
+        binding.selectedOverview.text = selectedMovie.overview
     }
 }

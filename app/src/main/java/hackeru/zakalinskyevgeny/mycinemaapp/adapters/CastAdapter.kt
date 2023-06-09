@@ -1,10 +1,13 @@
 package hackeru.zakalinskyevgeny.mycinemaapp.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
+import hackeru.zakalinskyevgeny.mycinemaapp.R
 import hackeru.zakalinskyevgeny.mycinemaapp.data.models.cast.Cast
 import hackeru.zakalinskyevgeny.mycinemaapp.databinding.CastItemBinding
 
