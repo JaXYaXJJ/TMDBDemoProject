@@ -7,7 +7,7 @@
 
 <br>
 
-![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/search2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/selected2.gif)
+ ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/search2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/selected2.gif)
 
 #### Built With:
 
