@@ -12,8 +12,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="url">
   <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif" height="auto" width="255">
-  </a>
-  <a href="url">
+ </a>
+ <a href="url">
   <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/search2.gif" height="auto" width="255">
  </a>
  <a href="url">
