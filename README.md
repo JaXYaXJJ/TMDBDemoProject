@@ -1,5 +1,7 @@
 # TMDBDemoProject
-#### The demo project in Android is trying to work with the THDB database.
+#### The demo project in Android is trying to work with the [TMDB](https://www.themoviedb.org/) database.
+###### The project was created on Android Studio using the Kotlin language.
+###### In the demo version, you can use the content search and view the details of the selected movies or shows.
 
 ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/project_backdrop.png)
 
