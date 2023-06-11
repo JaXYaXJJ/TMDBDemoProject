@@ -7,7 +7,7 @@
 
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="url">
   <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif" height="auto" width="260">
   </a>
