@@ -7,8 +7,17 @@
 
 <br>
 
- ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/search2.gif) ![](https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/selected2.gif)
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="url">
+  <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/home2.gif" height="auto" width="260">
+  </a>
+  <a href="url">
+  <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/search2.gif" height="auto" width="260">
+ </a>
+ <a href="url">
+  <img src="https://github.com/JaXYaXJJ/TMDBDemoProject/blob/master/selected2.gif" height="auto" width="260">
+ </a>
+ 
 #### Built With:
 
 - [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started)
@@ -17,3 +26,5 @@
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclsrc=ds&gclsrc=ds&gclid=COSn4ZOYx_ICFRYUjgodNmoF8w)
 - [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview)
+ 
+
